@@ -222,6 +222,59 @@ td .sub{font-family:var(--latin);font-size:10px;color:var(--muted);letter-spacin
 /* 等级高亮列 */
 .col-hl{box-shadow:inset 0 0 0 1px var(--gold-line-strong);background:rgba(212,175,55,.06)!important}
 
+/* 九阶黑金卡片墙 */
+.wall-scroll{
+  display:flex;gap:18px;padding:6px 4px 28px;
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  max-width:100%;
+}
+.wall-scroll::-webkit-scrollbar{height:8px}
+.wall-scroll::-webkit-scrollbar-track{background:rgba(0,0,0,.4);border-radius:8px}
+.wall-scroll::-webkit-scrollbar-thumb{background:linear-gradient(90deg,var(--gold-deep),var(--gold));border-radius:8px}
+.wall-hint{text-align:center;font-family:var(--latin);font-size:12px;letter-spacing:.3em;color:var(--dim);margin-bottom:40px}
+
+.tier-card{
+  flex:0 0 300px;scroll-snap-align:start;
+  position:relative;border-radius:18px;padding:28px 24px;
+  background:linear-gradient(165deg,rgba(24,17,9,.96),rgba(10,7,4,.92));
+  border:1px solid var(--gold-line);
+  display:flex;flex-direction:column;
+  transition:transform .3s,box-shadow .3s,border-color .3s;
+  overflow:hidden;
+}
+.tier-card:hover{transform:translateY(-6px);border-color:var(--gold-line-strong);box-shadow:0 24px 50px rgba(0,0,0,.6)}
+.tier-card::before{content:"";position:absolute;inset:0;background:radial-gradient(130% 60% at 50% -5%,rgba(212,175,55,.16),transparent 60%);pointer-events:none}
+.tier-card .tier-no{font-family:var(--latin);font-weight:700;font-size:12px;letter-spacing:.3em;color:var(--gold-soft);text-align:center}
+.tier-card .tier-rom{
+  font-family:var(--serif);font-weight:900;text-align:center;margin:8px 0 4px;
+  font-size:clamp(44px,7vw,64px);line-height:1;
+  background:linear-gradient(180deg,#fff7d6,var(--gold) 65%,var(--gold-deep));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.tier-card .tier-name{font-family:var(--serif);font-weight:600;text-align:center;color:var(--gold-bright);font-size:18px;letter-spacing:.1em}
+.tier-card .tier-group{font-family:var(--latin);font-size:11px;letter-spacing:.3em;color:var(--muted);text-align:center;margin-top:3px}
+.tier-card .tier-wealth{text-align:center;margin:14px 0 16px;font-family:var(--serif);font-weight:600;color:var(--cream);font-size:15px}
+.tier-card .tier-wealth b{color:var(--gold-bright)}
+.tier-card .tier-divider{height:1px;margin:0 10px 16px;background:linear-gradient(90deg,transparent,var(--gold-line-strong),transparent)}
+.tier-card .tier-benefits{display:flex;flex-direction:column;gap:10px}
+.tier-card .ben-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.55;color:var(--cream)}
+.tier-card .ben-item .tick{flex:0 0 auto;color:var(--gold-bright);font-family:var(--latin);font-weight:700;margin-top:1px;font-size:13px}
+.tier-card .ben-item .bv{color:var(--gold-bright);font-weight:600;font-family:var(--serif)}
+.tier-card .ben-empty{font-size:12px;color:var(--dim);text-align:center;font-style:italic}
+/* 等级递进视觉：越高级光晕越强 */
+.tier-card.lv-5,.tier-card.lv-6,.tier-card.lv-7{box-shadow:0 0 0 1px var(--gold-line-strong) inset,0 12px 30px rgba(0,0,0,.5)}
+.tier-card.lv-8,.tier-card.lv-9{box-shadow:0 0 0 1.5px var(--gold) inset,0 0 30px rgba(212,175,55,.15),0 16px 36px rgba(0,0,0,.55)}
+.tier-card.lv-9::after{content:"至尊";position:absolute;top:14px;right:14px;font-family:var(--serif);font-size:11px;letter-spacing:.2em;color:#1a130a;background:linear-gradient(180deg,var(--gold-bright),var(--gold));padding:3px 10px;border-radius:20px;font-weight:700}
+
+/* 折叠对比表 */
+.cmp-details{margin-top:30px;border:1px solid var(--gold-line);border-radius:14px;padding:18px 24px;background:rgba(14,10,6,.5)}
+.cmp-details summary{cursor:pointer;font-family:var(--serif);color:var(--gold);font-size:15px;letter-spacing:.08em;list-style:none}
+.cmp-details summary::-webkit-details-marker{display:none}
+.cmp-details summary::before{content:"▸ ";color:var(--gold-soft)}
+.cmp-details[open] summary::before{content:"▾ "}
+.cmp-details .tier-tabs{margin-top:20px}
+
 /* tier 选择条 */
 .tier-tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:24px}
 .tier-tabs button{
@@ -324,15 +377,21 @@ footer .copy{margin-top:22px;font-size:11px;color:var(--dim);letter-spacing:.08e
   <div class="feature-grid" id="featureEl"></div>
 </section>
 
-<!-- 全档对比 -->
+<!-- 九阶黑金卡片墙 -->
 <section id="compare">
-  <div class="eyebrow">FULL COMPARISON</div>
-  <h2 class="section-title">全档权益对比</h2>
-  <p class="section-sub">点亮任一等级，横向一览其专属权益；横向滑动查看全部九档。</p>
-  <div class="tier-tabs" id="tierTabs"></div>
-  <div class="table-wrap" id="tableWrap">
-    <table id="cmpTable"></table>
-  </div>
+  <div class="eyebrow">NINE TIER WALL</div>
+  <h2 class="section-title">九阶黑金 · 逐级尊享</h2>
+  <p class="section-sub">横向滑动浏览九档黑金，每档卡片完整罗列该等级全部权益；等级越高，权益越丰、荣光越盛。</p>
+  <div class="wall-scroll" id="wallScroll"></div>
+  <div class="wall-hint">← 左右滑动查看全部九档 →</div>
+
+  <details class="cmp-details">
+    <summary>查看完整权益对比表</summary>
+    <div class="tier-tabs" id="tierTabs"></div>
+    <div class="table-wrap" id="tableWrap">
+      <table id="cmpTable"></table>
+    </div>
+  </details>
 </section>
 
 <!-- 晋升之路 -->
@@ -495,56 +554,85 @@ const fmt=v=>v!=null?v.toLocaleString('en-US'):'' ;
   });
 })();
 
-/* tier tabs + 表格 */
+/* 九阶黑金卡片墙（横向滑动，逐档完整权益） */
 (function(){
-  const tabs=$('#tierTabs');
+  const wall=$('#wallScroll');
   TIERS.forEach((t,i)=>{
-    const b=document.createElement('button');
-    b.textContent=`黑金 ${t.id}`;b.dataset.idx=i;
-    if(i===0)b.classList.add('active');
-    b.onclick=()=>{document.querySelectorAll('.tier-tabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');highlightCol(i);};
-    tabs.appendChild(b);
-  });
-
-  const tbl=$('#cmpTable');
-  // thead
-  let html='<thead><tr>';
-  html+='<th class="cat">权益类别</th><th class="label">权益项</th>';
-  TIERS.forEach(t=>{html+=`<th><div class="tg">${t.group}</div><div class="tn">黑金 ${t.id}</div><div class="tw">WEALTH ${fmt(t.wealth)}</div></th>`;});
-  html+='</tr></thead><tbody>';
-  // body
-  let prevCat=null;
-  BENEFITS.forEach(b=>{
-    if(b.cat!==prevCat){
-      html+=`<tr class="cat-head"><td colspan="${TIERS.length+2}"><span class="cn">${b.cat}</span><span class="ce">${b.catEn}</span></td></tr>`;
-      prevCat=b.cat;
-    }
-    html+=`<tr><td class="cat">${b.cat}</td><td class="label">${b.item}</td>`;
-    b.vals.forEach(v=>{
-      let cell;
-      if(v===null||v==='—') cell=`<span class="no"></span>`;
-      else if(v==='✔') cell=`<span class="yes"></span>`;
-      else if(b.kind==='num') cell=`<span class="num">${v}</span>`;
-      else cell=`<span class="txt">${v}</span>`;
-      html+=`<td>${cell}</td>`;
+    const card=document.createElement('div');
+    card.className=`tier-card lv-${i+1}`;
+    // 收集该等级拥有的全部权益
+    const items=[];
+    BENEFITS.forEach(b=>{
+      const v=b.vals[i];
+      if(v===null||v==='—') return;       // 该等级无此权益
+      if(v==='✔') items.push({name:b.item,val:null}); // 纯享权益，无具体值
+      else items.push({name:b.item,val:v});           // 有具体数值/档位
     });
-    html+='</tr>';
-  });
-  html+='</tbody>';
-  tbl.innerHTML=html;
+    // 另外把 ✔ 类型权益也收集（上面已处理）
+    const listHtml = items.length? items.map(it=>`
+      <div class="ben-item"><span class="tick">✓</span><span>${it.name}${it.val?` <span class="bv">${it.val}</span>`:''}</span></div>
+    `).join('') : '<div class="ben-empty">达成即享基础礼遇</div>';
 
-  function highlightCol(idx){
-    const cols=TIERS.length+2;
-    document.querySelectorAll('#cmpTable tbody tr').forEach(tr=>{
-      tr.querySelectorAll('td').forEach((td,ci)=>{
-        if(ci>=2) td.classList.toggle('col-hl', ci-2===idx);
+    card.innerHTML=`
+      <div class="tier-no">BLACK GOLD TIER</div>
+      <div class="tier-rom">${t.id}</div>
+      <div class="tier-name">黑金 ${t.id}</div>
+      <div class="tier-group">${t.group} · ${t.card}</div>
+      <div class="tier-wealth">财富值 <b>${fmt(t.wealth)}</b></div>
+      <div class="tier-divider"></div>
+      <div class="tier-benefits">${listHtml}</div>
+    `;
+    wall.appendChild(card);
+  });
+})();
+
+/* 折叠完整对比表（展开时渲染） */
+(function(){
+  const det=document.querySelector('.cmp-details');
+  let built=false;
+  det.addEventListener('toggle',()=>{
+    if(det.open && !built){ built=true; buildTable(); }
+  });
+  function buildTable(){
+    const tabs=$('#tierTabs');
+    TIERS.forEach((t,i)=>{
+      const b=document.createElement('button');
+      b.textContent=`黑金 ${t.id}`;b.dataset.idx=i;
+      if(i===0)b.classList.add('active');
+      b.onclick=()=>{document.querySelectorAll('.tier-tabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');highlightCol(i);};
+      tabs.appendChild(b);
+    });
+    const tbl=$('#cmpTable');
+    let html='<thead><tr><th class="cat">权益类别</th><th class="label">权益项</th>';
+    TIERS.forEach(t=>{html+=`<th><div class="tg">${t.group}</div><div class="tn">黑金 ${t.id}</div><div class="tw">WEALTH ${fmt(t.wealth)}</div></th>`;});
+    html+='</tr></thead><tbody>';
+    let prevCat=null;
+    BENEFITS.forEach(b=>{
+      if(b.cat!==prevCat){
+        html+=`<tr class="cat-head"><td colspan="${TIERS.length+2}"><span class="cn">${b.cat}</span><span class="ce">${b.catEn}</span></td></tr>`;
+        prevCat=b.cat;
+      }
+      html+=`<tr><td class="cat">${b.cat}</td><td class="label">${b.item}</td>`;
+      b.vals.forEach(v=>{
+        let cell;
+        if(v===null||v==='—') cell=`<span class="no"></span>`;
+        else if(v==='✔') cell=`<span class="yes"></span>`;
+        else if(b.kind==='num') cell=`<span class="num">${v}</span>`;
+        else cell=`<span class="txt">${v}</span>`;
+        html+=`<td>${cell}</td>`;
       });
+      html+='</tr>';
     });
-    document.querySelectorAll('#cmpTable thead th').forEach((th,ci)=>{
-      if(ci>=2) th.classList.toggle('col-hl', ci-2===idx);
-    });
+    html+='</tbody>';
+    tbl.innerHTML=html;
+    highlightCol(0);
   }
-  highlightCol(0);
+  function highlightCol(idx){
+    document.querySelectorAll('#cmpTable tbody tr').forEach(tr=>{
+      tr.querySelectorAll('td').forEach((td,ci)=>{if(ci>=2) td.classList.toggle('col-hl',ci-2===idx);});
+    });
+    document.querySelectorAll('#cmpTable thead th').forEach((th,ci)=>{if(ci>=2) th.classList.toggle('col-hl',ci-2===idx);});
+  }
 })();
 
 /* 晋升 */
