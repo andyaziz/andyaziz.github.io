@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#0a0806">
+<meta name="description" content="着迷黑金贵族体系 · 九阶尊荣权益总览 · 初阶·中阶·高级·至尊逐档递进">
+<title>着迷黑金贵族体系 · 九阶尊荣</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0806;
+  --bg-2:#120d08;
+  --ink:#0e0a06;
+  --gold:#d4af37;
+  --gold-bright:#f7e08a;
+  --gold-soft:#c9a227;
+  --gold-deep:#8a6d1f;
+  --gold-line:rgba(212,175,55,.28);
+  --gold-line-strong:rgba(212,175,55,.55);
+  --cream:#f4ecd8;
+  --muted:#b9a98a;
+  --dim:#5c5040;
+  --shadow:0 20px 60px rgba(0,0,0,.55);
+  --serif:"Noto Serif SC","Cormorant Garamond",serif;
+  --sans:"Noto Sans SC",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --latin:"Cinzel","Cormorant Garamond",serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  color:var(--cream);
+  background:var(--bg);
+  line-height:1.7;
+  overflow-x:hidden;
+  background-image:
+    radial-gradient(1200px 700px at 80% -5%, rgba(212,175,55,.10), transparent 60%),
+    radial-gradient(900px 600px at 5% 15%, rgba(138,109,31,.12), transparent 55%),
+    radial-gradient(1000px 800px at 50% 120%, rgba(212,175,55,.08), transparent 60%);
+}
+/* 噪点 + 金粉纹理 */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.83 0 0 0 0 0.69 0 0 0 0 0.22 0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  mix-blend-mode:overlay;
+}
+main,header,section,footer{position:relative;z-index:2}
+
+/* ============ 顶栏 ============ */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px clamp(16px,4vw,48px);
+  background:linear-gradient(180deg,rgba(10,8,6,.92),rgba(10,8,6,.55) 70%,transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--gold-line);
+}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .mark{
+  width:34px;height:34px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,var(--gold-bright),var(--gold) 45%,var(--gold-deep));
+  box-shadow:0 0 0 1px var(--gold-line-strong),0 4px 14px rgba(0,0,0,.6);
+  display:grid;place-items:center;font-family:var(--latin);font-weight:700;color:#1a130a;font-size:15px;
+}
+.brand .txt b{font-family:var(--serif);font-weight:700;letter-spacing:.08em;color:var(--gold-bright)}
+.brand .txt small{display:block;font-family:var(--latin);font-size:10px;letter-spacing:.4em;color:var(--muted);margin-top:-2px}
+.topnav{display:flex;gap:clamp(10px,2.2vw,28px);font-size:13px}
+.topnav a{color:var(--muted);text-decoration:none;letter-spacing:.12em;transition:color .25s}
+.topnav a:hover{color:var(--gold-bright)}
+@media(max-width:720px){.topnav{display:none}}
+
+/* ============ HERO ============ */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:120px clamp(18px,5vw,60px) 80px;position:relative;overflow:hidden;
+}
+.hero .halo{
+  position:absolute;width:min(900px,130vw);height:min(900px,130vw);border-radius:50%;
+  background:radial-gradient(circle,rgba(212,175,55,.22),rgba(212,175,55,.05) 40%,transparent 65%);
+  top:50%;left:50%;transform:translate(-50%,-52%);filter:blur(10px);z-index:0;
+}
+.hero .crest{
+  font-family:var(--latin);letter-spacing:.5em;color:var(--gold);
+  font-size:clamp(11px,1.6vw,14px);margin-bottom:26px;z-index:2;
+  display:flex;align-items:center;gap:18px;
+}
+.hero .crest::before,.hero .crest::after{
+  content:"";width:clamp(40px,12vw,120px);height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.hero h1{
+  font-family:var(--serif);font-weight:900;
+  font-size:clamp(38px,9vw,108px);line-height:1.05;
+  background:linear-gradient(180deg,#fff7d6 0%,var(--gold-bright) 35%,var(--gold) 60%,var(--gold-deep) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  letter-spacing:.06em;margin-bottom:14px;z-index:2;
+  text-shadow:0 2px 40px rgba(212,175,55,.18);
+}
+.hero .en{
+  font-family:var(--latin);font-weight:600;letter-spacing:.42em;
+  font-size:clamp(12px,2vw,20px);color:var(--gold-soft);margin-bottom:36px;z-index:2;
+}
+.hero .lead{
+  max-width:760px;font-family:var(--serif);font-size:clamp(15px,2vw,20px);
+  color:var(--muted);line-height:1.95;letter-spacing:.04em;z-index:2;
+}
+.hero .lead em{color:var(--gold-bright);font-style:normal;font-weight:600}
+.hero .scroll-cue{
+  margin-top:54px;font-family:var(--latin);letter-spacing:.3em;font-size:11px;color:var(--dim);
+  display:flex;flex-direction:column;align-items:center;gap:10px;z-index:2;
+}
+.hero .scroll-cue .bar{width:1px;height:42px;background:linear-gradient(180deg,var(--gold),transparent);animation:drip 2.4s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top;opacity:.2}50%{transform:scaleY(1);transform-origin:top;opacity:1}100%{transform:scaleY(0);transform-origin:bottom;opacity:0}}
+
+/* ============ 通用区块 ============ */
+section{padding:clamp(60px,9vw,120px) clamp(16px,5vw,80px)}
+.eyebrow{
+  font-family:var(--latin);letter-spacing:.5em;font-size:clamp(10px,1.4vw,13px);
+  color:var(--gold);text-align:center;display:flex;align-items:center;justify-content:center;gap:14px;
+}
+.eyebrow::before,.eyebrow::after{content:"";width:clamp(28px,8vw,90px);height:1px;background:linear-gradient(90deg,transparent,var(--gold-line-strong),transparent)}
+.section-title{
+  font-family:var(--serif);font-weight:700;text-align:center;margin-top:14px;margin-bottom:18px;
+  font-size:clamp(26px,5vw,52px);letter-spacing:.08em;
+  background:linear-gradient(180deg,#fff7d6,var(--gold) 70%,var(--gold-deep));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.section-sub{text-align:center;color:var(--muted);max-width:680px;margin:0 auto 56px;font-size:clamp(14px,1.8vw,16px);letter-spacing:.05em}
+
+/* ============ 等级阶梯 ============ */
+.ladder{display:flex;flex-direction:column;gap:clamp(20px,3vw,32px);max-width:1180px;margin:0 auto}
+.tier-row{position:relative}
+.tier-row .glabel{
+  display:flex;align-items:center;gap:14px;margin-bottom:14px;
+  font-family:var(--serif);font-weight:600;font-size:clamp(15px,2vw,19px);color:var(--gold-bright);letter-spacing:.1em;
+}
+.tier-row .glabel .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+.tier-row .glabel .gd{font-family:var(--latin);font-size:11px;color:var(--muted);letter-spacing:.3em}
+.tier-row .gline{flex:1;height:1px;background:linear-gradient(90deg,var(--gold-line-strong),transparent)}
+.tier-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
+.tcard{
+  position:relative;border:1px solid var(--gold-line);border-radius:14px;
+  background:linear-gradient(160deg,rgba(26,19,10,.9),rgba(14,10,6,.7));
+  padding:22px 18px;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s;
+}
+.tcard:hover{transform:translateY(-4px);border-color:var(--gold-line-strong);box-shadow:0 16px 40px rgba(0,0,0,.5),0 0 0 1px var(--gold-line-strong) inset}
+.tcard::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 50% -10%,rgba(212,175,55,.18),transparent 60%);pointer-events:none}
+.tcard .rn{font-family:var(--latin);font-weight:700;font-size:13px;color:var(--gold-soft);letter-spacing:.25em}
+.tcard .rv{font-family:var(--serif);font-weight:900;font-size:clamp(28px,4vw,42px);margin:6px 0;
+  background:linear-gradient(180deg,#fff7d6,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.tcard .rl{font-family:var(--latin);font-size:10px;letter-spacing:.35em;color:var(--muted)}
+.tcard .rw{margin-top:14px;padding-top:12px;border-top:1px solid var(--gold-line);display:flex;justify-content:space-between;align-items:baseline}
+.tcard .rw .l{font-size:11px;color:var(--dim);letter-spacing:.1em}
+.tcard .rw .v{font-family:var(--serif);font-weight:600;color:var(--gold-bright);font-size:15px}
+
+/* ============ 四档尊荣卡 ============ */
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;max-width:1180px;margin:0 auto}
+.gcard{
+  position:relative;border:1px solid var(--gold-line);border-radius:18px;padding:30px 26px;overflow:hidden;
+  background:linear-gradient(165deg,rgba(24,17,9,.92),rgba(10,7,4,.85));
+  transition:transform .35s,box-shadow .35s;
+}
+.gcard:hover{transform:translateY(-6px);box-shadow:0 26px 60px rgba(0,0,0,.55)}
+.gcard .corner{position:absolute;top:0;right:0;width:90px;height:90px;opacity:.5}
+.gcard .gn{font-family:var(--latin);font-weight:700;font-size:11px;letter-spacing:.4em;color:var(--gold)}
+.gcard .gt{font-family:var(--serif);font-weight:900;font-size:clamp(22px,3vw,30px);margin:8px 0 4px;
+  background:linear-gradient(180deg,#fff7d6,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.06em}
+.gcard .gd{font-family:var(--latin);font-size:10px;color:var(--muted);letter-spacing:.3em;margin-bottom:18px}
+.gcard .gw{font-size:13px;color:var(--muted);line-height:1.9}
+.gcard .gw b{color:var(--gold-bright);font-weight:600;font-family:var(--serif)}
+.gcard .tiers{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+.gcard .tiers span{font-family:var(--latin);font-size:11px;letter-spacing:.15em;padding:4px 12px;border:1px solid var(--gold-line);border-radius:30px;color:var(--gold-soft)}
+
+/* ============ 权益图标速览 ============ */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;max-width:1180px;margin:0 auto}
+.fcard{
+  border:1px solid var(--gold-line);border-radius:14px;padding:24px 20px;text-align:center;
+  background:linear-gradient(160deg,rgba(22,16,9,.7),rgba(10,7,4,.6));transition:all .3s;
+}
+.fcard:hover{border-color:var(--gold-line-strong);transform:translateY(-3px)}
+.fcard .fi{width:46px;height:46px;margin:0 auto 14px;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(circle at 35% 30%,var(--gold-bright),var(--gold) 50%,var(--gold-deep));
+  box-shadow:0 0 0 1px var(--gold-line-strong),0 6px 18px rgba(0,0,0,.5)}
+.fcard .fi svg{width:22px;height:22px;fill:#1a130a}
+.fcard .ft{font-family:var(--serif);font-weight:600;color:var(--gold-bright);font-size:16px;letter-spacing:.06em}
+.fcard .fd{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.7}
+
+/* ============ 对比表 ============ */
+.table-wrap{max-width:100%;overflow-x:auto;margin:0 auto;border-radius:16px;border:1px solid var(--gold-line-strong);
+  background:linear-gradient(180deg,rgba(18,13,8,.95),rgba(8,6,3,.95));box-shadow:var(--shadow)}
+.table-wrap::-webkit-scrollbar{height:10px}
+.table-wrap::-webkit-scrollbar-track{background:rgba(0,0,0,.4)}
+.table-wrap::-webkit-scrollbar-thumb{background:linear-gradient(90deg,var(--gold-deep),var(--gold));border-radius:10px}
+table{border-collapse:separate;border-spacing:0;width:100%;min-width:1080px}
+thead th{
+  position:sticky;top:0;z-index:5;background:linear-gradient(180deg,#1c1409,#120c06);
+  border-bottom:1px solid var(--gold-line-strong);
+}
+th,td{padding:14px 12px;text-align:center;border-bottom:1px solid rgba(212,175,55,.12);white-space:nowrap;font-size:13px}
+thead th .tn{font-family:var(--serif);font-weight:700;color:var(--gold-bright);font-size:16px;letter-spacing:.08em}
+thead th .tw{font-family:var(--latin);font-size:10px;color:var(--muted);letter-spacing:.2em;margin-top:3px}
+thead th .tg{font-family:var(--latin);font-size:9px;color:var(--gold-soft);letter-spacing:.3em;margin-top:2px}
+/* 标签列黏性 */
+th.label,td.label{position:sticky;left:0;z-index:4;background:rgba(14,10,6,.97);text-align:left}
+th.cat{left:0;z-index:6;background:#1c1409}
+td.cat{left:0;z-index:3;color:var(--gold-soft);font-weight:600;background:rgba(20,15,9,.97)}
+tbody tr:hover td{background:rgba(212,175,55,.04)}
+tbody tr.cat-head td{background:linear-gradient(90deg,rgba(40,28,10,.9),rgba(20,14,7,.9));text-align:left}
+tbody tr.cat-head td .cn{font-family:var(--serif);font-weight:700;color:var(--gold-bright);font-size:15px;letter-spacing:.1em;padding-left:12px}
+tbody tr.cat-head td .ce{font-family:var(--latin);font-size:10px;color:var(--muted);letter-spacing:.3em;margin-left:10px}
+tbody td.label{color:var(--cream);font-size:13px;padding-left:16px}
+td .yes{color:var(--gold-bright);font-weight:700}
+td .yes::before{content:"✓";font-family:var(--latin)}
+td .no{color:var(--dim)}
+td .no::before{content:"—"}
+td .num{font-family:var(--serif);font-weight:600;color:var(--gold-bright)}
+td .txt{color:var(--cream)}
+td .sub{font-family:var(--latin);font-size:10px;color:var(--muted);letter-spacing:.1em;display:block;margin-top:2px}
+/* 等级高亮列 */
+.col-hl{box-shadow:inset 0 0 0 1px var(--gold-line-strong);background:rgba(212,175,55,.06)!important}
+
+/* tier 选择条 */
+.tier-tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:24px}
+.tier-tabs button{
+  font-family:var(--latin);font-weight:600;letter-spacing:.18em;font-size:12px;
+  padding:9px 18px;border-radius:30px;cursor:pointer;color:var(--muted);
+  background:rgba(20,15,9,.7);border:1px solid var(--gold-line);transition:all .25s;
+}
+.tier-tabs button:hover{color:var(--gold-bright);border-color:var(--gold-line-strong)}
+.tier-tabs button.active{color:#1a130a;background:linear-gradient(180deg,var(--gold-bright),var(--gold));border-color:var(--gold);box-shadow:0 4px 16px rgba(212,175,55,.3)}
+
+/* ============ 攀升 ============ */
+.ascend{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;max-width:1100px;margin:0 auto}
+.astep{position:relative;border:1px solid var(--gold-line);border-radius:14px;padding:26px 22px;
+  background:linear-gradient(160deg,rgba(22,16,9,.7),rgba(10,7,4,.6));text-align:center}
+.astep .n{font-family:var(--latin);font-weight:700;color:var(--gold-deep);font-size:14px;letter-spacing:.3em;margin-bottom:12px}
+.astep .ic{width:42px;height:42px;margin:0 auto 14px;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(circle at 35% 30%,var(--gold-bright),var(--gold) 55%,var(--gold-deep))}
+.astep .ic svg{width:20px;height:20px;fill:#1a130a}
+.astep h4{font-family:var(--serif);color:var(--gold-bright);font-size:17px;letter-spacing:.06em;margin-bottom:8px}
+.astep p{font-size:13px;color:var(--muted);line-height:1.8}
+
+/* ============ 说明 ============ */
+.notes{max-width:880px;margin:0 auto;border:1px solid var(--gold-line);border-radius:16px;padding:30px clamp(20px,4vw,40px);
+  background:linear-gradient(160deg,rgba(20,15,9,.7),rgba(10,7,4,.6))}
+.notes h3{font-family:var(--serif);color:var(--gold-bright);font-size:18px;letter-spacing:.1em;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.notes h3::before{content:"";width:4px;height:18px;background:linear-gradient(180deg,var(--gold-bright),var(--gold-deep));border-radius:2px}
+.notes ol{list-style:none;counter-reset:n}
+.notes li{counter-increment:n;position:relative;padding-left:32px;margin-bottom:14px;font-size:13px;color:var(--muted);line-height:1.85}
+.notes li::before{content:counter(n,decimal-leading-zero);position:absolute;left:0;top:0;font-family:var(--latin);font-weight:600;color:var(--gold);font-size:13px;letter-spacing:.1em}
+.notes li b{color:var(--cream);font-weight:600}
+
+/* ============ footer ============ */
+footer{padding:60px 20px 40px;text-align:center;border-top:1px solid var(--gold-line);margin-top:60px}
+footer .sigil{font-family:var(--latin);letter-spacing:.5em;color:var(--gold);font-size:12px;margin-bottom:12px}
+footer .nm{font-family:var(--serif);font-weight:700;color:var(--gold-bright);font-size:18px;letter-spacing:.12em}
+footer .en{font-family:var(--latin);font-size:10px;color:var(--muted);letter-spacing:.4em;margin-top:8px}
+footer .copy{margin-top:22px;font-size:11px;color:var(--dim);letter-spacing:.08em}
+
+/* 飘金粒子 */
+.dust{position:fixed;inset:0;pointer-events:none;z-index:3;overflow:hidden}
+.dust span{position:absolute;width:3px;height:3px;border-radius:50%;background:radial-gradient(circle,var(--gold-bright),transparent);opacity:.5;animation:fall linear infinite}
+@keyframes fall{0%{transform:translateY(-10vh) translateX(0);opacity:0}10%{opacity:.6}100%{transform:translateY(110vh) translateX(40px);opacity:0}}
+
+@media(max-width:560px){
+  th,td{padding:10px 8px;font-size:12px}
+  thead th .tn{font-size:14px}
+  section{padding:60px 14px}
+}
+</style>
+</head>
+<body>
+<div class="dust" id="dust"></div>
+
+<nav class="topbar">
+  <div class="brand">
+    <div class="mark">Z</div>
+    <div class="txt"><b>着迷</b><small>BLACK&nbsp;GOLD</small></div>
+  </div>
+  <div class="topnav">
+    <a href="#ladder">等级阶梯</a>
+    <a href="#groups">四档尊荣</a>
+    <a href="#features">权益速览</a>
+    <a href="#compare">全档对比</a>
+    <a href="#ascend">晋升之路</a>
+    <a href="#notes">说明</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="halo"></div>
+  <div class="crest">NOBILITAS · AURUM · NIGRA</div>
+  <h1>着迷黑金贵族体系</h1>
+  <div class="en">BLACK&nbsp;GOLD&nbsp;NOBILITY&nbsp;·&nbsp;NINE&nbsp;TIERS</div>
+  <p class="lead">以财富值叩开九重尊门，自<em>初阶</em>拾级而上，经<em>中阶</em>、<em>高级</em>，登临<em>至尊</em>之巅。
+     每一级，皆是身份、特权与荣光的递进；每一阶，皆有专属礼遇为你加冕。</p>
+  <div class="scroll-cue"><span>SCROLL</span><span class="bar"></span></div>
+</header>
+
+<!-- 等级阶梯 -->
+<section id="ladder">
+  <div class="eyebrow">THE NINE TIERS</div>
+  <h2 class="section-title">九阶等级阶梯</h2>
+  <p class="section-sub">财富值累积，等级自然攀升。九重尊门，逐档加冕。</p>
+  <div class="ladder" id="ladderEl"></div>
+</section>
+
+<!-- 四档尊荣 -->
+<section id="groups">
+  <div class="eyebrow">FOUR RANKS</div>
+  <h2 class="section-title">四档尊荣体系</h2>
+  <p class="section-sub">初阶 · 中阶 · 高级 · 至尊 — 由浅入深，荣光层层加冕。</p>
+  <div class="groups" id="groupsEl"></div>
+</section>
+
+<!-- 权益速览 -->
+<section id="features">
+  <div class="eyebrow">CORE PRIVILEGES</div>
+  <h2 class="section-title">核心权益速览</h2>
+  <p class="section-sub">月度供养 · 尊享身份 · 黑金专享 · 拍卖特权，四大维度构筑贵族体验。</p>
+  <div class="feature-grid" id="featureEl"></div>
+</section>
+
+<!-- 全档对比 -->
+<section id="compare">
+  <div class="eyebrow">FULL COMPARISON</div>
+  <h2 class="section-title">全档权益对比</h2>
+  <p class="section-sub">点亮任一等级，横向一览其专属权益；横向滑动查看全部九档。</p>
+  <div class="tier-tabs" id="tierTabs"></div>
+  <div class="table-wrap" id="tableWrap">
+    <table id="cmpTable"></table>
+  </div>
+</section>
+
+<!-- 晋升之路 -->
+<section id="ascend">
+  <div class="eyebrow">THE ASCENT</div>
+  <h2 class="section-title">晋升之路</h2>
+  <p class="section-sub">财富值累积，等级自然跃迁；每一阶皆是新身份、新特权、新荣光。</p>
+  <div class="ascend" id="ascendEl"></div>
+</section>
+
+<!-- 说明 -->
+<section id="notes">
+  <div class="eyebrow">NOTES</div>
+  <h2 class="section-title">权益说明</h2>
+  <div class="notes">
+    <h3>细则与须知</h3>
+    <ol id="notesList"></ol>
+  </div>
+</section>
+
+<footer>
+  <div class="sigil">◆ ◆ ◆</div>
+  <div class="nm">着迷 · 黑金贵族体系</div>
+  <div class="en">BLACK&nbsp;GOLD&nbsp;NOBILITY&nbsp;SYSTEM</div>
+  <div class="copy">本页内容依据《黑金会员等级权益表》整理 · 权益以群内最新公示为准</div>
+</footer>
+
+<script>
+/* ===== 数据 ===== */
+const TIERS = [
+  {id:'I',   wealth:3000,  group:'初阶', card:'初阶黑金卡',     sub:'I'},
+  {id:'II',  wealth:4500,  group:'初阶', card:'初阶黑金卡',     sub:'II'},
+  {id:'III', wealth:6000,  group:'中阶', card:'中阶黑金卡',     sub:'III'},
+  {id:'IV',  wealth:8000,  group:'中阶', card:'中阶黑金卡',     sub:'IV'},
+  {id:'V',   wealth:10000, group:'高级', card:'高级黑金卡',     sub:'V'},
+  {id:'VI',  wealth:12000, group:'高级', card:'高级黑金卡',     sub:'VI'},
+  {id:'VII', wealth:15000, group:'高级', card:'高级黑金卡',     sub:'VII'},
+  {id:'VIII',wealth:18000, group:'至尊', card:'至尊黑金卡',     sub:'VIII'},
+  {id:'IX',  wealth:21000, group:'至尊', card:'至尊黑金卡',     sub:'IX'},
+];
+/* 权益项: vals 数组长度=9, 对应 I~IX */
+const BENEFITS = [
+  {cat:'每月福利', catEn:'MONTHLY', item:'每月灵石', vals:['4000','7000','10000','14000','17000','20000','23000','30000','36000'], kind:'num'},
+  {cat:'每月福利', catEn:'MONTHLY', item:'每月粉钻', vals:['20','30','40','50','60','70','80','100','150'], kind:'num'},
+  {cat:'每月福利', catEn:'MONTHLY', item:'好友位卡', vals:['1个','2个','3个','4个','5个','6个','8个','无限制','无限制'], kind:'txt'},
+  {cat:'每月福利', catEn:'MONTHLY', item:'平日主群冠名1日卡', vals:['1张','2张','3张','3张','4张','5张','5张','7张','7张'], kind:'txt'},
+  {cat:'每月福利', catEn:'MONTHLY', item:'平日BOT冠名1日卡', vals:['1张','2张','3张','3张','4张','5张','5张','7张','7张'], kind:'txt'},
+
+  {cat:'尊享权益', catEn:'PREMIUM', item:'永久无流放标识', vals:[null,'✔','✔','✔','✔','✔','✔','✔','✔'], kind:'bool'},
+  {cat:'尊享权益', catEn:'PREMIUM', item:'无限免费删黑、恢复数据', vals:[null,null,'✔','✔','✔','✔','✔','✔','✔'], kind:'bool'},
+  {cat:'尊享权益', catEn:'PREMIUM', item:'主群发言无敏感词限制', vals:[null,null,null,'✔','✔','✔','✔','✔','✔'], kind:'bool'},
+  {cat:'尊享权益', catEn:'PREMIUM', item:'头衔', vals:['六字头衔','六字头衔','六字头衔','六字头衔','至尊一字头衔','至尊一字头衔','至尊一字头衔','至尊一字头衔','至尊一字头衔'], kind:'txt'},
+  {cat:'尊享权益', catEn:'PREMIUM', item:'自由马甲', vals:['中级自由马甲','中级自由马甲','高级自由马甲','高级自由马甲','至尊一字马甲','至尊一字马甲','至尊一字马甲','至尊一字马甲','至尊一字马甲'], kind:'txt'},
+  {cat:'尊享权益', catEn:'PREMIUM', item:'尊享个人卡1张（管理优选）', vals:['✔','—','—','—','—','—','—','—','—'], kind:'bool'},
+  {cat:'尊享权益', catEn:'PREMIUM', item:'个人认证卡1张（自选卡名）', vals:[null,null,'✔','—','—','—','—','—','—'], kind:'bool'},
+  {cat:'尊享权益', catEn:'PREMIUM', item:'专属C卡', vals:[null,null,null,'✔','—','—','—','—','—'], kind:'bool'},
+  {cat:'尊享权益', catEn:'PREMIUM', item:'双人认证卡1张（自选卡名）', vals:[null,null,null,null,'✔','—','—','—','—'], kind:'bool'},
+  {cat:'尊享权益', catEn:'PREMIUM', item:'多人认证卡1张（自选卡名）', vals:[null,null,null,null,'4人','4人','6人','6人','8人'], kind:'txt'},
+  {cat:'尊享权益', catEn:'PREMIUM', item:'BOT权限', vals:[null,'2级','2级','2级','5级','5级','5级','5级','5级'], kind:'txt'},
+
+  {cat:'黑金专享权益', catEn:'EXCLUSIVE', item:'黑金卡等级', vals:['初阶黑金卡（I级）','初阶黑金卡（II级）','中阶黑金卡（III级）','中阶黑金卡（IV级）','高级黑金卡（V级）','高级黑金卡（VI级）','高级黑金卡（VII级）','至尊黑金卡（VIII级）','至尊黑金卡（IX级）'], kind:'txt'},
+  {cat:'黑金专享权益', catEn:'EXCLUSIVE', item:'生日祝福', vals:['1档','2档','3档','4档','5档','5档+生日电台','5档+生日电台','6档+生日电台','6档+生日电台'], kind:'txt'},
+  {cat:'黑金专享权益', catEn:'EXCLUSIVE', item:'推荐赞助返现', vals:['10%','10%','10%','10%','15%','15%','15%','20%','20%'], kind:'num'},
+  {cat:'黑金专享权益', catEn:'EXCLUSIVE', item:'消费及充值折扣', vals:[null,'95折','95折','9折','9折','85折','85折','8折','8折'], kind:'txt'},
+  {cat:'黑金专享权益', catEn:'EXCLUSIVE', item:'入驻着迷名人堂', vals:[null,null,'✔','✔','✔','✔','✔','✔','✔'], kind:'bool'},
+  {cat:'黑金专享权益', catEn:'EXCLUSIVE', item:'福利活动无视限制条件', vals:[null,null,'✔','✔','✔','✔','✔','✔','✔'], kind:'bool'},
+  {cat:'黑金专享权益', catEn:'EXCLUSIVE', item:'专属个人俱乐部', vals:[null,null,null,null,'✔','✔','✔','✔','✔'], kind:'bool'},
+  {cat:'黑金专享权益', catEn:'EXCLUSIVE', item:'与CP共享尊享权益', vals:[null,null,null,null,'✔','✔','✔','✔','✔'], kind:'bool'},
+  {cat:'黑金专享权益', catEn:'EXCLUSIVE', item:'挚友共享尊享权益', vals:[null,null,null,null,null,'1名','1名','2名','3名'], kind:'txt'},
+  {cat:'黑金专享权益', catEn:'EXCLUSIVE', item:'每年包场15首歌曲电台', vals:[null,null,null,null,null,'1次','1次','1次','1次'], kind:'txt'},
+  {cat:'黑金专享权益', catEn:'EXCLUSIVE', item:'每年包场30首歌曲电台', vals:[null,null,null,null,null,null,null,null,'1次'], kind:'txt'},
+
+  {cat:'拍卖特权', catEn:'AUCTION', item:'拍卖委托交易手续费', vals:[null,null,'9折','9折','8折','8折','7折','6折','5折'], kind:'txt'},
+  {cat:'拍卖特权', catEn:'AUCTION', item:'拍卖清单优先查阅', vals:[null,null,'✔','✔','✔','✔','✔','✔','✔'], kind:'bool'},
+  {cat:'拍卖特权', catEn:'AUCTION', item:'竞拍匿名出价', vals:[null,null,'✔','✔','✔','✔','✔','✔','✔'], kind:'bool'},
+  {cat:'拍卖特权', catEn:'AUCTION', item:'流拍拍品议价内购', vals:[null,null,null,null,'✔','✔','✔','✔','✔'], kind:'bool'},
+  {cat:'拍卖特权', catEn:'AUCTION', item:'竞拍保密出价', vals:[null,null,null,null,null,null,'✔','✔','✔'], kind:'bool'},
+];
+const CAT_ORDER = ['每月福利','尊享权益','黑金专享权益','拍卖特权'];
+
+const GROUP_INFO = {
+  '初阶':{en:'INITIATE', tiers:['I','II'], desc:'叩门黑金之境，开启<b>每月灵石·粉钻供养</b>与<b>头衔·马甲</b>身份，初尝贵族礼遇。'},
+  '中阶':{en:'INTERMEDIATE', tiers:['III','IV'], desc:'尊享<b>永久无流放标识</b>、<b>无限免费删黑</b>，解锁<b>个人认证卡</b>、<b>名人堂</b>与拍卖特权。'},
+  '高级':{en:'ADVANCED', tiers:['V','VI','VII'], desc:'晋升<b>至尊一字</b>头衔马甲，享<b>专属俱乐部</b>、<b>CP共享</b>、<b>双人认证卡</b>与生日电台。'},
+  '至尊':{en:'SUPREME', tiers:['VIII','IX'], desc:'登临极巅：<b>挚友共享</b>、<b>包场电台</b>、<b>保密出价</b>、手续费低至<b>5折</b>，荣耀之至。'},
+};
+
+const FEATURES = [
+  {t:'每月灵石 / 粉钻', d:'每月定期供养，等级越高数额越丰，至IX级月享灵石36000。', icon:'gem'},
+  {t:'头衔与马甲', d:'六字头衔起步，高级及以上享至尊一字头衔与至尊一字马甲。', icon:'crown'},
+  {t:'认证卡体系', d:'尊享个人卡、个人/双人/多人认证卡，由浅入深逐级解锁。', icon:'card'},
+  {t:'生日电台', d:'生日祝福由1档升至6档，VI级起享专属生日电台庆生。', icon:'star'},
+  {t:'消费充值折扣', d:'95折起，至至尊8折；赞助返现最高20%，越尊越省。', icon:'coin'},
+  {t:'专属俱乐部', d:'V级起享专属个人俱乐部，与CP共享尊享权益。', icon:'hall'},
+  {t:'名人堂席位', d:'III级起入驻着迷名人堂，福利活动无视限制条件。', icon:'trophy'},
+  {t:'拍卖特权', d:'优先查阅、匿名/保密出价、流拍内购、手续费低至5折。', icon:'hammer'},
+];
+const ICONS = {
+  gem:'<path d="M12 2l3 7h6l-4.8 5.2L18 22l-6-4-6 4 1.8-7.8L3 9h6z"/>',
+  crown:'<path d="M3 7l4 5 5-7 5 7 4-5v9H3V7zm0 11h18v2H3z"/>',
+  card:'<path d="M2 5h20v5H2zm0 7h20v7H2zm2 2v3h6v-3z"/>',
+  star:'<path d="M12 2l2.9 6.3L22 9l-5 4.8L18.2 22 12 18l-6.2 4L7 13.8 2 9l7.1-.7z"/>',
+  coin:'<path d="M12 2a9 9 0 100 18 9 9 0 000-18zm0 3l1.5 3.5L17 9l-3.5 1.5L12 14l-1.5-3.5L7 9l3.5-.5z"/>',
+  hall:'<path d="M3 21V9l9-6 9 6v12h-5v-7H8v7H3zm6 0v-2h6v2H9z"/>',
+  trophy:'<path d="M6 3h12v3a6 6 0 01-12 0V3zm-3 1h3v2H3v2a3 3 0 003 3v2a5 5 0 01-5-5V4zm18 0h-3v2h3v2a3 3 0 01-3 3v2a5 5 0 005-5V4zM9 18h6v3H9z"/>',
+  hammer:'<path d="M14 2l8 8-3 3-2-2-7 7-4-4 7-7-2-2z"/>',
+};
+
+const NOTES = [
+  '<b>好友位卡、平日主群冠名1日卡、平日BOT冠名1日卡</b>，每月1日发放至背包，当月有效，不累计、不保留，月底到期自动清除。',
+  '尊享权益中的<b>个人认证卡、双人认证卡、专属C卡</b>，权益表中达成对应条件时获得。',
+  '群内开展充值活动期间，<b>消费及充值折扣均不适用</b>。',
+  '专属个人俱乐部群仅安排少量管理入驻，以保障群内娱乐氛围。',
+];
+
+/* ===== 渲染 ===== */
+const $=s=>document.querySelector(s);
+const fmt=v=>v!=null?v.toLocaleString('en-US'):'' ;
+
+/* 等级阶梯 */
+(function(){
+  const el=$('#ladderEl');
+  ['初阶','中阶','高级','至尊'].forEach(g=>{
+    const tiers=TIERS.filter(t=>t.group===g);
+    const row=document.createElement('div');row.className='tier-row';
+    row.innerHTML=`<div class="glabel"><span class="dot"></span>${g} · ${GROUP_INFO[g].en}<span class="gline"></span></div>
+      <div class="tier-cards">${tiers.map(t=>`
+        <div class="tcard"><div class="rn">TIER ${t.id}</div>
+          <div class="rv">${t.id}</div><div class="rl">${t.card}</div>
+          <div class="rw"><span class="l">财富值</span><span class="v">${fmt(t.wealth)}</span></div>
+        </div>`).join('')}</div>`;
+    el.appendChild(row);
+  });
+})();
+
+/* 四档尊荣 */
+(function(){
+  const el=$('#groupsEl');
+  ['初阶','中阶','高级','至尊'].forEach((g,i)=>{
+    const info=GROUP_INFO[g];
+    const c=document.createElement('div');c.className='gcard';
+    c.innerHTML=`<svg class="corner" viewBox="0 0 100 100"><defs><linearGradient id="cg${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7e08a"/><stop offset="1" stop-color="#8a6d1f"/></linearGradient></defs><path d="M100 0 L100 100 L0 0 Z" fill="url(#cg${i})" opacity="0.5"/></svg>
+      <div class="gn">RANK ${String(i+1).padStart(2,'0')}</div>
+      <div class="gt">${g}黑金</div>
+      <div class="gd">${info.en}</div>
+      <div class="gw">${info.desc}</div>
+      <div class="tiers">${info.tiers.map(t=>`<span>${t}</span>`).join('')}</div>`;
+    el.appendChild(c);
+  });
+})();
+
+/* 权益速览 */
+(function(){
+  const el=$('#featureEl');
+  FEATURES.forEach(f=>{
+    const c=document.createElement('div');c.className='fcard';
+    c.innerHTML=`<div class="fi"><svg viewBox="0 0 24 24">${ICONS[f.icon]||''}</svg></div>
+      <div class="ft">${f.t}</div><div class="fd">${f.d}</div>`;
+    el.appendChild(c);
+  });
+})();
+
+/* tier tabs + 表格 */
+(function(){
+  const tabs=$('#tierTabs');
+  TIERS.forEach((t,i)=>{
+    const b=document.createElement('button');
+    b.textContent=`黑金 ${t.id}`;b.dataset.idx=i;
+    if(i===0)b.classList.add('active');
+    b.onclick=()=>{document.querySelectorAll('.tier-tabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');highlightCol(i);};
+    tabs.appendChild(b);
+  });
+
+  const tbl=$('#cmpTable');
+  // thead
+  let html='<thead><tr>';
+  html+='<th class="cat">权益类别</th><th class="label">权益项</th>';
+  TIERS.forEach(t=>{html+=`<th><div class="tg">${t.group}</div><div class="tn">黑金 ${t.id}</div><div class="tw">WEALTH ${fmt(t.wealth)}</div></th>`;});
+  html+='</tr></thead><tbody>';
+  // body
+  let prevCat=null;
+  BENEFITS.forEach(b=>{
+    if(b.cat!==prevCat){
+      html+=`<tr class="cat-head"><td colspan="${TIERS.length+2}"><span class="cn">${b.cat}</span><span class="ce">${b.catEn}</span></td></tr>`;
+      prevCat=b.cat;
+    }
+    html+=`<tr><td class="cat">${b.cat}</td><td class="label">${b.item}</td>`;
+    b.vals.forEach(v=>{
+      let cell;
+      if(v===null||v==='—') cell=`<span class="no"></span>`;
+      else if(v==='✔') cell=`<span class="yes"></span>`;
+      else if(b.kind==='num') cell=`<span class="num">${v}</span>`;
+      else cell=`<span class="txt">${v}</span>`;
+      html+=`<td>${cell}</td>`;
+    });
+    html+='</tr>';
+  });
+  html+='</tbody>';
+  tbl.innerHTML=html;
+
+  function highlightCol(idx){
+    const cols=TIERS.length+2;
+    document.querySelectorAll('#cmpTable tbody tr').forEach(tr=>{
+      tr.querySelectorAll('td').forEach((td,ci)=>{
+        if(ci>=2) td.classList.toggle('col-hl', ci-2===idx);
+      });
+    });
+    document.querySelectorAll('#cmpTable thead th').forEach((th,ci)=>{
+      if(ci>=2) th.classList.toggle('col-hl', ci-2===idx);
+    });
+  }
+  highlightCol(0);
+})();
+
+/* 晋升 */
+(function(){
+  const el=$('#ascendEl');
+  const steps=[
+    {n:'01',ic:'gem',h:'累积财富值',p:'通过群内活动、赞助、充值等途径累积财富值，等级随财富值自然跃迁。'},
+    {n:'02',ic:'crown',h:'解锁身份特权',p:'每达新档，解锁对应头衔、马甲、认证卡、专属俱乐部等身份特权。'},
+    {n:'03',ic:'star',h:'享尽黑金礼遇',p:'月度供养、生日电台、消费折扣、拍卖特权等专享礼遇层层叠加。'},
+    {n:'04',ic:'trophy',h:'登临至尊之巅',p:'至至尊档，挚友共享、包场电台、保密出价、手续费5折，荣耀加冕。'},
+  ];
+  steps.forEach(s=>{
+    const c=document.createElement('div');c.className='astep';
+    c.innerHTML=`<div class="n">${s.n}</div><div class="ic"><svg viewBox="0 0 24 24">${ICONS[s.ic]}</svg></div><h4>${s.h}</h4><p>${s.p}</p>`;
+    el.appendChild(c);
+  });
+})();
+
+/* 说明 */
+(function(){const ol=$('#notesList');NOTES.forEach(n=>{const li=document.createElement('li');li.innerHTML=n;ol.appendChild(li);});})();
+
+/* 金粉粒子 */
+(function(){
+  const d=$('#dust');for(let i=0;i<28;i++){
+    const s=document.createElement('span');
+    s.style.left=Math.random()*100+'%';
+    s.style.animationDuration=(8+Math.random()*12)+'s';
+    s.style.animationDelay=(-Math.random()*12)+'s';
+    s.style.transform=`scale(${0.5+Math.random()*1.4})`;
+    d.appendChild(s);
+  }
+})();
+</script>
+</body>
+</html>
