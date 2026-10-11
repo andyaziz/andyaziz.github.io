@@ -73,9 +73,14 @@ th.label,td.label{position:sticky;left:0;z-index:4;background:#100b06;padding:3p
 thead th.label{z-index:7;background:#1c1409;font-size:11px}
 
 /* 类别行 */
-tbody tr.cat td{
-  background:linear-gradient(90deg,rgba(40,28,10,.95),rgba(18,12,6,.92));
+tbody tr.cat td.cat-label{
+  position:sticky;left:0;z-index:3;
+  background:linear-gradient(90deg,rgba(40,28,10,.98),rgba(30,21,8,.96));
   padding:3px 10px;font-family:var(--serif);font-weight:700;color:var(--gold-bright);font-size:11px;letter-spacing:.1em;line-height:1.2;
+  border-top:1px solid var(--gold-line-strong);border-bottom:1px solid var(--gold-line-strong);
+}
+tbody tr.cat td.cat-empty{
+  background:linear-gradient(90deg,rgba(30,21,8,.85),rgba(18,12,6,.85));
   border-top:1px solid var(--gold-line-strong);border-bottom:1px solid var(--gold-line-strong);
 }
 tbody tr.cat td .ce{font-family:var(--latin);font-size:7.5px;color:var(--muted);letter-spacing:.25em;margin-left:6px;font-weight:400}
@@ -142,8 +147,8 @@ const TIERS=[
   {id:'IX',wealth:21000,group:'至尊'},
 ];
 const BENEFITS=[
-  {cat:'每月福利',catEn:'MONTHLY',item:'每月灵石',vals:['4000','7000','10000','14000','17000','20000','23000','30000','36000'],kind:'num'},
   {cat:'每月福利',catEn:'MONTHLY',item:'每月粉钻',vals:['20','30','40','50','60','70','80','100','150'],kind:'num'},
+  {cat:'每月福利',catEn:'MONTHLY',item:'每月灵石',vals:['4000','7000','10000','14000','17000','20000','23000','30000','36000'],kind:'num'},
   {cat:'每月福利',catEn:'MONTHLY',item:'好友位卡',vals:['1个','2个','3个','4个','5个','6个','8个','无限制','无限制'],kind:'txt'},
   {cat:'每月福利',catEn:'MONTHLY',item:'平日主群冠名1日卡',vals:['1张','2张','3张','3张','4张','5张','5张','7张','7张'],kind:'txt'},
   {cat:'每月福利',catEn:'MONTHLY',item:'平日BOT冠名1日卡',vals:['1张','2张','3张','3张','4张','5张','5张','7张','7张'],kind:'txt'},
@@ -190,7 +195,7 @@ html+='</tr></thead><tbody>';
 let prevCat=null;
 BENEFITS.forEach(b=>{
   if(b.cat!==prevCat){
-    html+=`<tr class="cat"><td colspan="${TIERS.length+1}">${b.cat}<span class="ce">${b.catEn}</span></td></tr>`;
+    html+=`<tr class="cat"><td class="cat-label">${b.cat}<span class="ce">${b.catEn}</span></td><td colspan="${TIERS.length}" class="cat-empty"></td></tr>`;
     prevCat=b.cat;
   }
   html+=`<tr class="row"><td class="label">${b.item}</td>`;
