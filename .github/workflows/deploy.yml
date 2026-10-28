@@ -1,0 +1,47 @@
+name: Pages Deploy
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: gh-pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - name: Patch
+        env:
+          A0293B: ${{ secrets.A0293B }}
+          B1DC53: ${{ secrets.B1DC53 }}
+        run: |
+          python3 -c "
+          import pathlib, os, sys
+          sec_a = os.environ.get('A0293B', '')
+          sec_b = os.environ.get('B1DC53', '')
+          target = pathlib.Path('index.html')
+          before = target.read_text(encoding='utf-8')
+          after = before
+          if sec_a:
+              after = after.replace('<!-- cd04a71d9e7bf9a1ee61f7ba4a3e2f6fc1 -->', sec_a)
+          if sec_b:
+              after = after.replace('<!-- c51889030719dc72c15ce355020a -->', sec_b)
+          if after == before and (sec_a or sec_b):
+              sys.exit(1)
+          if after != before:
+              target.write_text(after, encoding='utf-8')
+          "
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deploy
+        uses: actions/deploy-pages@v4
